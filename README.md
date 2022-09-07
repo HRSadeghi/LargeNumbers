@@ -77,16 +77,27 @@ You can also use numbers as fractions,
 ```python
 from LargeNumber import LargeNumber, largeNumberFormat
 
-a = LargeNumber('1/3')
-b = LargeNumber('-1/2')
+a = LargeNumber('1/2')
+b = LargeNumber('-3/14')
 
-largeNumberFormat.return_fracation = False
+# Ops (return the result as a fraction)
+largeNumberFormat.return_fracation = True
 
-# Ops
 print(a+b)
 print(a-b)
 print(a*b)
 print(a/b)
+##
+
+# Ops (return the result as a decimal)
+largeNumberFormat.precision = 5
+largeNumberFormat.return_fracation = False
+
+print(a+b)
+print(a-b)
+print(a*b)
+print(a/b)
+##
 
 
 ```
