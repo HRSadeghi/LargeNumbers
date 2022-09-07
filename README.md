@@ -18,7 +18,8 @@ limitations under the License.
 
 In this repository, a library has been provided that allows you to perform the four basic operations of addition, subtraction, multiplication and division on large and very large numbers.
 
-Note: In this library, powering operation is not yet supported
+Note: In this library, powering is not supported yet, but it will be supported in the next versions.
+
 
 
 ## Installation
