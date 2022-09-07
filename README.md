@@ -77,8 +77,8 @@ You can also use numbers as fractions,
 ```python
 from LargeNumber import LargeNumber, largeNumberFormat
 
-a = LargeNumber('1/7')
-b = LargeNumber('-2/5')
+a = LargeNumber('1/3')
+b = LargeNumber('-1/2')
 
 largeNumberFormat.return_fracation = False
 
