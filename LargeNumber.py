@@ -71,7 +71,7 @@ class LargeNumber(object):
     
     def __rsub__(self, x):
         self.value =  self.value.replace('-', '')  if '-' in self.value else '-' + self.value
-        out = self.__add__(x.value)
+        out = self.__add__(x)
         self.value =  self.value.replace('-', '')  if '-' in self.value else '-' + self.value
         return out
 
