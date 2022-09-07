@@ -61,18 +61,16 @@ class LargeNumber(object):
     def  __radd__(self, x):
         return self.__add__(x)
 
-    def __sub__(self, x):
-        if '-' in x.value:
-            return self.__add__(x.value.replace('-', ''))
-        elif '+' in x.value:
-            return self.__add__('-' + x.value.replace('+', ''))
-        else:
-            return self.__add__('-' + x.value)
     
     def __rsub__(self, x):
         self.value =  self.value.replace('-', '')  if '-' in self.value else '-' + self.value
         out = self.__add__(x)
         self.value =  self.value.replace('-', '')  if '-' in self.value else '-' + self.value
+        return out
+
+    def __sub__(self, x):
+        out = self.__rsub__(x)
+        out.value =  out.value.replace('-', '')  if '-' in out.value else '-' + out.value
         return out
 
     def __mul__(self, x):
