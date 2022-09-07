@@ -109,6 +109,23 @@ class LargeNumber(object):
                                        return_frac = largeNumberFormat.return_fracation))
         else:
             raise ValueError('The data type {} is not supported!'.format(type(x)))
+
+
+    def __rtruediv__(self, x):
+        if type(x) == LargeNumber:
+            return LargeNumber(_divide(x.value,
+                                       self.value,
+                                       max_dec_num = largeNumberFormat.precision,
+                                       repeating_form = largeNumberFormat.return_repeating_form,
+                                       return_frac = largeNumberFormat.return_fracation))
+        elif type(x) == int or str:
+            return LargeNumber(_divide(str(x),
+                                       self.value,
+                                       max_dec_num = largeNumberFormat.precision,
+                                       repeating_form = largeNumberFormat.return_repeating_form,
+                                       return_frac = largeNumberFormat.return_fracation))
+        else:
+            raise ValueError('The data type {} is not supported!'.format(type(x)))
     
     def __floordiv__(self, x):
         if type(x) == LargeNumber:
