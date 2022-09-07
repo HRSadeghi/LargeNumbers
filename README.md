@@ -65,7 +65,22 @@ print(a/b)
 
 <br/>
 
-In the above code snippet, because the number of digits for the division operation may be very large, so a maximum can be defined for it using `largeNumberFormat.precision`.
+
+
+
+<br/>
+
+In the above code snippet, because the number of digits for the division operation may be very large, so a maximum can be defined for it using `largeNumberFormat.precision`. If the number of digits appearing in the division process is more than the number of digits allocated for `largeNumberFormat.precision`, then a letter `L` appears at the end of the number (this letter has no effect in calculations).
+
+```python
+from LargeNumber import LargeNumber, largeNumberFormat
+
+largeNumberFormat.precision = 2
+
+a = LargeNumber('1')
+b = LargeNumber('7')
+
+```
 
 
 <br/>
