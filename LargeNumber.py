@@ -48,7 +48,7 @@ class LargeNumber(object):
            sum = _frac_to_dec(sum, repeating_form=largeNumberFormat.return_repeating_form, max_dec_num=largeNumberFormat.precision)
         elif largeNumberFormat.return_fracation:
             sum = _divide(sum,
-                          1,
+                          '1',
                           max_dec_num = largeNumberFormat.precision,
                           repeating_form = largeNumberFormat.return_repeating_form,
                           return_frac = largeNumberFormat.return_fracation)
