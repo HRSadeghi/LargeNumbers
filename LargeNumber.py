@@ -35,6 +35,8 @@ class LargeNumber(object):
         return self.value
     
     def __str__(self):
+        if self.larger_than_precision:
+            return self.value + 'L'
         return self.value
 
     def __len__(self):
