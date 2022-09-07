@@ -235,6 +235,7 @@ def _add(x, y):
         y_dec_len = len(y.split('.')[1])
     else:
         y_dec_len = 0
+        
 
     x = x.replace('.', '')
     y = y.replace('.', '')
@@ -296,11 +297,19 @@ def _add(x, y):
     x = string_int_to_very_long_int(x)
     y = string_int_to_very_long_int(y)
 
-
     sum = str((x_sign * x + y_sign * y)[0])
 
-    if x_dec_len > 0 or y_dec_len > 0:
-        sum = sum[:-x_dec_len] + '.' + sum[-x_dec_len:]
+    
+    if x_sign*y_sign>0:
+        if x_dec_len > 0 or y_dec_len > 0:
+            sum = sum[:-x_dec_len] + '.' + sum[-x_dec_len:]
+    else:
+        sum_sign = '-' if sum[0] == '-' else ''
+        sum = sum.replace('-', '')
+        if len(sum) < x_dec_len:
+            sum = '0.' + ''.join(['0']*(x_dec_len - len(sum))) + sum
+        
+        sum = sum_sign + sum
     
     return number_to_simplest_form(sum)
 
