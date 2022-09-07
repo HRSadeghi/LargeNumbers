@@ -76,7 +76,7 @@ class LargeNumber(object):
     def __mul__(self, x):
         if type(x) == LargeNumber:
             _mul = _multiply(self.value,  x.value)
-        elif type(x) == int or str:
+        elif type(x) == int or float or str:
             _mul = _multiply(self.value,  str(x))            
         else:
             raise ValueError('The data type {} is not supported!'.format(type(x)))
@@ -101,7 +101,7 @@ class LargeNumber(object):
                                        max_dec_num = largeNumberFormat.precision,
                                        repeating_form = largeNumberFormat.return_repeating_form,
                                        return_frac = largeNumberFormat.return_fracation))
-        elif type(x) == int or str:
+        elif type(x) == int or float or str:
             return LargeNumber(_divide(self.value,
                                        str(x),
                                        max_dec_num = largeNumberFormat.precision,
@@ -118,7 +118,7 @@ class LargeNumber(object):
                                        max_dec_num = largeNumberFormat.precision,
                                        repeating_form = largeNumberFormat.return_repeating_form,
                                        return_frac = largeNumberFormat.return_fracation))
-        elif type(x) == int or str:
+        elif type(x) == int or float or str:
             return LargeNumber(_divide(str(x),
                                        self.value,
                                        max_dec_num = largeNumberFormat.precision,
@@ -134,7 +134,7 @@ class LargeNumber(object):
                                        max_dec_num = 1,
                                        repeating_form = False,
                                        return_frac = False).split('.')[0].replace('L',''))
-        elif type(x) == int or str:
+        elif type(x) == int or float or str:
             return LargeNumber(_divide(self.value,
                                        str(x),
                                        max_dec_num = 1,
@@ -151,7 +151,7 @@ class LargeNumber(object):
                                        max_dec_num = 1,
                                        repeating_form = False,
                                        return_frac = False).split('.')[0].replace('L',''))
-        elif type(x) == int or str:
+        elif type(x) == int or float or str:
             return LargeNumber(_divide(str(x),
                                        self.value,
                                        max_dec_num = 1,
@@ -165,7 +165,7 @@ class LargeNumber(object):
             a, b = to_fraction(x.value)
             a_sign = -1 if '-' in a else 1
             a = a.replace('-', '').replace('+', '')
-        elif type(x) == int or str:
+        elif type(x) == int or float or str:
             a, b = to_fraction(str(x))
             a_sign = -1 if '-' in a else 1
             a = a.replace('-', '').replace('+', '')
@@ -197,7 +197,7 @@ class LargeNumber(object):
             a, b = to_fraction(x.value)
             a_sign = -1 if '-' in a else 1
             a = a.replace('-', '').replace('+', '')
-        elif type(x) == int or str:
+        elif type(x) == int or float or str:
             a, b = to_fraction(str(x))
             a_sign = -1 if '-' in a else 1
             a = a.replace('-', '').replace('+', '')
