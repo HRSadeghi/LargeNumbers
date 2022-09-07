@@ -80,6 +80,8 @@ largeNumberFormat.precision = 2
 a = LargeNumber('1')
 b = LargeNumber('7')
 
+print(a/b)
+
 ```
 
 
@@ -233,4 +235,25 @@ print(a-b)
 print(a*b)
 print(a/b)
 ##
+```
+
+
+In the above code snippet, `largeNumberFormat.return_repeating_form` specifies whether the number is in recurring (repeating) form or not. If the number of digits in the periodic display exceeds the number of digits dedicated to the `largeNumberFormat.precision`, the number will not be displayed recurringly and an `L` will appear at the end of the number.
+
+```python
+from LargeNumber import LargeNumber, largeNumberFormat
+
+largeNumberFormat.return_repeating_form = True
+largeNumberFormat.return_fracation = False
+largeNumberFormat.precision = 6
+
+a = LargeNumber('1')
+b = LargeNumber('7')
+
+print(a/b)
+
+largeNumberFormat.precision = 5
+
+print()
+print(a/b)
 ```
