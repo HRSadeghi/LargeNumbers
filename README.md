@@ -68,7 +68,8 @@ In the above code snippet, because the number of digits for the division operati
 
 
 <br/>
-You can also define one of the numbers as a string,
+
+You can also define one of the numbers as a `string`, `int` or `float`,
 
 ```python
 from LargeNumber import LargeNumber, largeNumberFormat
