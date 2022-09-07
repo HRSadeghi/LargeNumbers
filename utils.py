@@ -94,6 +94,9 @@ def number_to_simplest_form(input):
     if type(input) is not str:
         input = str(input)
 
+    if input == '-0' or input == '+0':
+        return '0'
+
     input_sign = '-' if input[0] == '-' else ''
     input = input[1:] if input[0] == '-' or input[0] == '+' else input 
 	
@@ -487,8 +490,8 @@ def _divide(x, y, max_dec_num = 100, repeating_form = False, return_frac = False
         out = number_to_simplest_form(out)
         if remainder[0] != 0:
             out += 'L'
-    #if out != '0':
-    out = '-' + out if x_sign*y_sign == -1 else out
+    if out != '0':
+        out = '-' + out if x_sign*y_sign == -1 else out
 
     return out
         
