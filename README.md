@@ -166,6 +166,39 @@ print(a/b)
 
 ## Recurring decimal
 Numbers such as $\dfrac{1}{3}$, $\dfrac{1}{7}$ and similar numbers do not have a finite decimal representation. Therefore, we are facing a problem to perform division in these numbers. But these numbers can be shown in periodic form. As a result, $\dfrac{1}{3}$ can be represented by $0.\overline{3}$ and $\dfrac{1}{7}$ by $0.\overline{142857}$.
+
+According to this way of representation, we can apply the four operations of addition, subtraction, multiplication and division on the same representation.
+
  
 
+```python
+from LargeNumber import LargeNumber, largeNumberFormat
 
+largeNumberFormat.return_repeating_form = True
+largeNumberFormat.return_fracation = False
+largeNumberFormat.precision = 30
+
+
+a = LargeNumber('1/7')
+b = LargeNumber('1/3')
+
+# Ops 
+print(a+b)
+print(a-b)
+print(a*b)
+print(a/b)
+##
+
+
+
+a = LargeNumber('0.R81')
+b = LargeNumber('1/3')
+
+# Ops 
+print()
+print(a+b)
+print(a-b)
+print(a*b)
+print(a/b)
+##
+```
