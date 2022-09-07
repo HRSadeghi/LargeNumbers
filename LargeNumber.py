@@ -77,6 +77,8 @@ class LargeNumber(object):
                           max_dec_num = largeNumberFormat.precision,
                           repeating_form = largeNumberFormat.return_repeating_form,
                           return_frac = largeNumberFormat.return_fracation)
+        else:
+            _mul = _add(_mul, '0')
         return LargeNumber(_mul)
 
     def __truediv__(self, x):
