@@ -487,8 +487,8 @@ def _divide(x, y, max_dec_num = 100, repeating_form = False, return_frac = False
         out = number_to_simplest_form(out)
         if remainder[0] != 0:
             out += 'L'
-
-    out = '-' + out if x_sign*y_sign == -1 else out
+    if out != '0':
+        out = '-' + out if x_sign*y_sign == -1 else out
 
     return out
         
