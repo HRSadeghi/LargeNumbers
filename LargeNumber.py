@@ -57,6 +57,9 @@ class LargeNumber(object):
                           return_frac = largeNumberFormat.return_fracation)
         return LargeNumber(sum)
 
+    def  __radd__(self, x):
+        return self.__add__(x)
+
     def __sub__(self, x):
         if '-' in x.value:
             return self.__add__(x.value.replace('-', ''))
