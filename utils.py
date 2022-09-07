@@ -323,6 +323,8 @@ def _add(x, y):
         sum = sum.replace('-', '')
         if len(sum) < x_dec_len:
             sum = '0.' + ''.join(['0']*(x_dec_len - len(sum))) + sum
+        else:
+            sum = sum[:-x_dec_len] + '.' + sum[-x_dec_len:]
         
         sum = sum_sign + sum
     
