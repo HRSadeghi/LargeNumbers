@@ -43,7 +43,7 @@ class LargeNumber(object):
     def __add__(self, x):
         if type(x) == LargeNumber:
             sum = _add(self.value, x.value)
-        elif type(x) == int or str:
+        elif type(x) == float or int or str:
             sum = _add(self.value, str(x))
         else:
             raise ValueError('The data type {} is not supported!'.format(type(x)))
