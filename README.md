@@ -165,5 +165,7 @@ print(a/b)
 
 
 ## Recurring decimal
-Numbers such as 1/3, 1/7 and similar numbers do not have a finite decimal representation. Therefore, we are facing a problem to perform division in these numbers.
+Numbers such as $\dfrac{1}{3}$, $\dfrac{1}{7}$ and similar numbers do not have a finite decimal representation. Therefore, we are facing a problem to perform division in these numbers. But these numbers can be shown in periodic form. As a result, $\dfrac{1}{3}$ can be represented by $0.\overline{3}$ and $\dfrac{1}{7}$ by $0.\overline{142857}$.
+ 
+
 
