@@ -167,6 +167,13 @@ class LargeNumber(object):
     def __ge__(self, x):
         return self.__gt__(x) or self.__eq__(x)
 
+    def __neg__(self):
+        value_sign = '-' if '-' in self.value else ''
+        new_val = self.value.replace('-', '').replace('+', '')
+        neg_val = new_val if value_sign == '-' else '-' + new_val
+        neg_number = LargeNumber(neg_val)
+        return neg_number
+
     
     
         
