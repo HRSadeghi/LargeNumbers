@@ -26,8 +26,11 @@ largeNumberFormat = LargeNumberFormat()
 class LargeNumber(object):
     def __init__(self, value):
         self.value = number_to_simplest_form(str(value).replace('L', '').strip())
+        self.larger_than_precision = True if 'L' in str(value) else False
 
     def __repr__(self):
+        if self.larger_than_precision:
+            return self.value + 'L'
         return self.value
     
     def __str__(self):
