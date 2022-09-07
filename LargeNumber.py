@@ -65,11 +65,19 @@ class LargeNumber(object):
 
     def __mul__(self, x):
         if type(x) == LargeNumber:
-            return LargeNumber(_multiply(self.value,  x.value))
+            _mul = _multiply(self.value,  x.value)
         elif type(x) == int or str:
-            return LargeNumber(_multiply(self.value,  str(x)))
+            _mul = _multiply(self.value,  str(x))            
         else:
             raise ValueError('The data type {} is not supported!'.format(type(x)))
+
+        if largeNumberFormat.return_fracation:
+            _mul = _divide(_mul,
+                          '1',
+                          max_dec_num = largeNumberFormat.precision,
+                          repeating_form = largeNumberFormat.return_repeating_form,
+                          return_frac = largeNumberFormat.return_fracation)
+        return LargeNumber(_mul)
 
     def __truediv__(self, x):
         if type(x) == LargeNumber:
