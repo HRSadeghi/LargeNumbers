@@ -36,7 +36,6 @@ print(a*b)
 
 # Division
 largeNumberFormat.precision = 100
-largeNumberFormat.return_repeating_form = False
 largeNumberFormat.return_fracation = False
 
 print(a/b)
