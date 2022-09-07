@@ -1,157 +1,193 @@
-<!---
-Copyright 2022 Hamidreza Sadeghi. All rights reserved.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
--->
-
-# Large Numbers
-
-In this repository, a project has been implemented that allows you to perform the four basic operations of addition, subtraction, multiplication and division on large and very large numbers.
-
-## Installation
-
-To use the model, just clone the project and change the path to the corresponding directory.
-
-```
-git clone https://github.com/HRSadeghi/LargeNumbers.git
-
-cd LargeNumbers
-```
-
-## Usage
-
-The easiest way to use this library is as follows,
-
-```python
-from LargeNumber import LargeNumber, largeNumberFormat
-
-a = LargeNumber('125763678041689463179.45761346709461437894')
-b = LargeNumber('-746011541145.47464169741644487000085')
-
-# Negation
-print(-a)
-print(-b)
-
-# Addition and Subtraction
-print(a+b)
-print(a-b)
-print(-a+b)
-
-# Multiplication
-print(a*b)
-
-# Division
-largeNumberFormat.precision = 100
-largeNumberFormat.return_fracation = False
-
-print(a/b)
-
-```
-
-In the above code snippet, because the number of digits for the division operation may be very large, so a maximum can be defined for it using `largeNumberFormat.precision`.
-
-
-<br/>
-You can also define one of the numbers as a string,
-
-```python
-from LargeNumber import LargeNumber, largeNumberFormat
-
-a = LargeNumber('125763678041689463179.45761346709461437894')
-b = '-746011541145.47464169741644487000085'
-
-# Ops
-print(a+b)
-print(a-b)
-print(a*b)
-print(a/b)
+#Copyright 2022 Hamidreza Sadeghi. All rights reserved.
+#
+#Licensed under the Apache License, Version 2.0 (the "License");
+#you may not use this file except in compliance with the License.
+#You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+#Unless required by applicable law or agreed to in writing, software
+#distributed under the License is distributed on an "AS IS" BASIS,
+#WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#See the License for the specific language governing permissions and
+#limitations under the License.
 
 
 
-a = '125763678041689463179.45761346709461437894'
-b = LargeNumber('-746011541145.47464169741644487000085')
-
-# Ops
-print(a+b)
-print(a-b)
-print(a*b)
-print(a/b)
-```
+import numpy as np
+from LargeNumberFormat import LargeNumberFormat
+from utils import gcd, _add, string_int_to_very_long_int, convert_repeating_dec_to_frac
+from utils import dec_to_frac, number_to_simplest_form, to_fraction, _multiply
+from utils import _divide, _invert, _frac_to_dec
 
 
+largeNumberFormat = LargeNumberFormat()
 
-<br/>
-You can also use numbers as fractions,
+class LargeNumber(object):
+    def __init__(self, value):
+        self.value = number_to_simplest_form(str(value).replace('L', '').strip())
 
-```python
-from LargeNumber import LargeNumber, largeNumberFormat
+    def __repr__(self):
+        return self.value
+    
+    def __str__(self):
+        return self.value
 
-a = LargeNumber('1/2')
-b = LargeNumber('-3/14')
+    def __len__(self):
+        return len(self.value)
 
-# Ops (return the result as a fraction)
-largeNumberFormat.return_fracation = True
+    def __add__(self, x):
+        if type(x) == LargeNumber:
+            sum = _add(self.value, x.value)
+        elif type(x) == int or str:
+            sum = _add(self.value, str(x))
+        else:
+            raise ValueError('The data type {} is not supported!'.format(type(x)))
 
-print(a+b)
-print(a-b)
-print(a*b)
-print(a/b)
-##
+        if ('/' in sum) and (not largeNumberFormat.return_fracation):
+           sum = _frac_to_dec(sum, repeating_form=largeNumberFormat.return_repeating_form, max_dec_num=largeNumberFormat.precision)
+        elif largeNumberFormat.return_fracation:
+            sum = _divide(sum,
+                          '1',
+                          max_dec_num = largeNumberFormat.precision,
+                          repeating_form = largeNumberFormat.return_repeating_form,
+                          return_frac = largeNumberFormat.return_fracation)
+        return LargeNumber(sum)
 
-# Ops (return the result as a decimal)
-largeNumberFormat.precision = 5
-largeNumberFormat.return_fracation = False
-
-print(a+b)
-print(a-b)
-print(a*b)
-print(a/b)
-##
-
-
-```
-
-
-It is also possible to give numbers as input and get the output as a fraction or non-fraction, 
-
-```python
-from LargeNumber import LargeNumber, largeNumberFormat
-
-a = LargeNumber('1.134')
-b = LargeNumber('-3/14')
-
-# Ops (return the result as a fraction)
-largeNumberFormat.return_fracation = True
-
-print(a+b)
-print(a-b)
-print(a*b)
-print(a/b)
-##
+    def __sub__(self, x):
+        if '-' in x.value:
+            return self.__add__(x.value.replace('-', ''))
+        elif '+' in x.value:
+            return self.__add__('-' + x.value.replace('+', ''))
+        else:
+            return self.__add__('-' + x.value)
 
 
-a = LargeNumber('1.134')
-b = LargeNumber('-1.57')
+    def __mul__(self, x):
+        if type(x) == LargeNumber:
+            _mul = _multiply(self.value,  x.value)
+        elif type(x) == int or str:
+            _mul = _multiply(self.value,  str(x))            
+        else:
+            raise ValueError('The data type {} is not supported!'.format(type(x)))
 
-# Ops (return the result as a decimal)
-largeNumberFormat.precision = 5
-largeNumberFormat.return_fracation = True
+        _mul =  _divide(_mul,
+                        '1',
+                        max_dec_num = largeNumberFormat.precision,
+                        repeating_form = largeNumberFormat.return_repeating_form,
+                        return_frac = largeNumberFormat.return_fracation)
 
-print(a+b)
-print(a-b)
-print(a*b)
-print(a/b)
-##
+        return LargeNumber(_mul)
+
+    def __truediv__(self, x):
+        if type(x) == LargeNumber:
+            return LargeNumber(_divide(self.value,
+                                       x.value,
+                                       max_dec_num = largeNumberFormat.precision,
+                                       repeating_form = largeNumberFormat.return_repeating_form,
+                                       return_frac = largeNumberFormat.return_fracation))
+        elif type(x) == int or str:
+            return LargeNumber(_divide(self.value,
+                                       str(x),
+                                       max_dec_num = largeNumberFormat.precision,
+                                       repeating_form = largeNumberFormat.return_repeating_form,
+                                       return_frac = largeNumberFormat.return_fracation))
+        else:
+            raise ValueError('The data type {} is not supported!'.format(type(x)))
+    
+    def __floordiv__(self, x):
+        if type(x) == LargeNumber:
+            return LargeNumber(_divide(self.value,
+                                       x.value,
+                                       max_dec_num = 1,
+                                       repeating_form = False,
+                                       return_frac = False).split('.')[0].replace('L',''))
+        elif type(x) == int or str:
+            return LargeNumber(_divide(self.value,
+                                       str(x),
+                                       max_dec_num = 1,
+                                       repeating_form = False,
+                                       return_frac = False).split('.')[0].replace('L',''))
+        else:
+            raise ValueError('The data type {} is not supported!'.format(type(x)))
+            
+    def __eq__(self, x):
+        if type(x) == LargeNumber:
+            a, b = to_fraction(x.value)
+            a_sign = -1 if '-' in a else 1
+            a = a.replace('-', '').replace('+', '')
+        elif type(x) == int or str:
+            a, b = to_fraction(str(x))
+        else:
+            raise ValueError('The data type {} is not supported!'.format(type(x)))
+        c, d = to_fraction(self.value)
+        c_sign = -1 if '-' in c else 1
+        c = c.replace('-', '').replace('+', '')
 
 
-```
+        a = string_int_to_very_long_int(a)
+        b = string_int_to_very_long_int(b)
+        c = string_int_to_very_long_int(c)
+        d = string_int_to_very_long_int(d)
+
+        g1 = gcd(a, b)
+        a = a//g1
+        b = b//g1
+
+        g2 = gcd(c, d)
+        c = c//g2
+        d = d//g2
+
+        return (a_sign*a == c_sign*c and b == d)[0]
+
+    
+    def __gt__(self, x):
+        if type(x) == LargeNumber:
+            a, b = to_fraction(x.value)
+            a_sign = -1 if '-' in a else 1
+            a = a.replace('-', '').replace('+', '')
+        elif type(x) == int or str:
+            a, b = to_fraction(str(x))
+        else:
+            raise ValueError('The data type {} is not supported!'.format(type(x)))
+        c, d = to_fraction(self.value)
+        c_sign = -1 if '-' in c else 1
+        c = c.replace('-', '').replace('+', '')
+
+
+        a = string_int_to_very_long_int(a)
+        b = string_int_to_very_long_int(b)
+        c = string_int_to_very_long_int(c)
+        d = string_int_to_very_long_int(d)
+
+        g1 = gcd(a, b)
+        a = a//g1
+        b = b//g1
+
+        g2 = gcd(c, d)
+        c = c//g2
+        d = d//g2
+
+        p1 = _multiply(str(a[0]), str(d[0]))
+        p2 = _multiply(str(c[0]), str(b[0]))
+
+        p1 = string_int_to_very_long_int(p1)
+        p2 = string_int_to_very_long_int(p2)
+
+        return (a_sign*p1 < c_sign*p2)[0]
+
+
+
+    def __ge__(self, x):
+        return self.__gt__(x) or self.__eq__(x)
+
+    def __neg__(self):
+        value_sign = '-' if '-' in self.value else ''
+        new_val = self.value.replace('-', '').replace('+', '')
+        neg_val = new_val if value_sign == '-' else '-' + new_val
+        neg_number = LargeNumber(neg_val)
+        return neg_number
+
+    
+    
+        
