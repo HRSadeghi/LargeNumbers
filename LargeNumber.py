@@ -25,7 +25,7 @@ largeNumberFormat = LargeNumberFormat()
 
 class LargeNumber(object):
     def __init__(self, value):
-        self.value = number_to_simplest_form(str(value).replace('L', '').strip())
+        self.value = number_to_simplest_form(str(value).replace('L', '').replace('+', '').strip())
         self.larger_than_precision = True if 'L' in str(value) else False
 
     def __repr__(self):
@@ -69,7 +69,10 @@ class LargeNumber(object):
             return self.__add__('-' + x.value)
     
     def __rsub__(self, x):
-        return self.__sub__(x)
+        self.value =  self.value.replace('-', '')  if '-' in self.value else '-' + self.value
+        out = self.__add__(x.value)
+        self.value =  self.value.replace('-', '')  if '-' in self.value else '-' + self.value
+        return out
 
     def __mul__(self, x):
         if type(x) == LargeNumber:
