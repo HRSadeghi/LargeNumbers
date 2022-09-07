@@ -71,14 +71,12 @@ class LargeNumber(object):
         else:
             raise ValueError('The data type {} is not supported!'.format(type(x)))
 
-        if largeNumberFormat.return_fracation:
-            _mul = _divide(_mul,
-                          '1',
-                          max_dec_num = largeNumberFormat.precision,
-                          repeating_form = largeNumberFormat.return_repeating_form,
-                          return_frac = largeNumberFormat.return_fracation)
-        else:
-            _mul = _add(_mul, '0')
+        _mul =  _divide(_mul,
+                        '1',
+                        max_dec_num = largeNumberFormat.precision,
+                        repeating_form = largeNumberFormat.return_repeating_form,
+                        return_frac = largeNumberFormat.return_fracation)
+
         return LargeNumber(_mul)
 
     def __truediv__(self, x):
