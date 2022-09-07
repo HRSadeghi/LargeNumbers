@@ -91,6 +91,11 @@ class LargeNumber(object):
 
         return LargeNumber(_mul)
 
+
+    def __rmul__(self, x):
+        return self.__mul__(x)
+
+
     def __truediv__(self, x):
         if type(x) == LargeNumber:
             return LargeNumber(_divide(self.value,
