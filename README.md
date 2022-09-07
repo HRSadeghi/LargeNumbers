@@ -183,6 +183,17 @@ a = LargeNumber('0.R81')
 b = LargeNumber('1/3')
 
 # Ops 
+print(a+b)
+print(a-b)
+print(a*b)
+print(a/b)
+##
+
+
+a = LargeNumber('0.12R81')
+b = LargeNumber('0.665')
+
+# Ops 
 print()
 print(a+b)
 print(a-b)
@@ -192,9 +203,10 @@ print(a/b)
 
 
 a = LargeNumber('1/7')
-b = LargeNumber('1/3')
+b = LargeNumber('0.665')
 
 # Ops 
+print()
 print(a+b)
 print(a-b)
 print(a*b)
