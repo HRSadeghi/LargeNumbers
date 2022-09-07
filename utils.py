@@ -315,10 +315,10 @@ def _add(x, y):
     sum = str((x_sign * x + y_sign * y)[0])
 
     
-    if x_sign*y_sign>0:
+    if x_sign * y_sign > 0 and x_dec_len > 0:
         if x_dec_len > 0 or y_dec_len > 0:
             sum = sum[:-x_dec_len] + '.' + sum[-x_dec_len:]
-    else:
+    elif x_dec_len > 0:
         sum_sign = '-' if sum[0] == '-' else ''
         sum = sum.replace('-', '')
         if len(sum) < x_dec_len:
