@@ -20,7 +20,7 @@ The easiest way to use this library is as follows,
 from LargeNumber import LargeNumber, largeNumberFormat
 
 a = LargeNumber('125763678041689463179.45761346709461437894')
-b = LargeNumber('746011541145.47464169741644487000085')
+b = LargeNumber('-746011541145.47464169741644487000085')
 
 # Negation
 print(-a)
