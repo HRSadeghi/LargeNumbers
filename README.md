@@ -120,3 +120,38 @@ print(a/b)
 
 
 ```
+
+
+It is also possible to give numbers as input and get the output as a fraction or non-fraction, 
+
+```python
+from LargeNumber import LargeNumber, largeNumberFormat
+
+a = LargeNumber('1.134')
+b = LargeNumber('-3/14')
+
+# Ops (return the result as a fraction)
+largeNumberFormat.return_fracation = True
+
+print(a+b)
+print(a-b)
+print(a*b)
+print(a/b)
+##
+
+
+a = LargeNumber('1.134')
+b = LargeNumber('-1.57')
+
+# Ops (return the result as a decimal)
+largeNumberFormat.precision = 5
+largeNumberFormat.return_fracation = True
+
+print(a+b)
+print(a-b)
+print(a*b)
+print(a/b)
+##
+
+
+```

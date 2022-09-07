@@ -46,6 +46,12 @@ class LargeNumber(object):
 
         if ('/' in sum) and (not largeNumberFormat.return_fracation):
            sum = _frac_to_dec(sum, repeating_form=largeNumberFormat.return_repeating_form, max_dec_num=largeNumberFormat.precision)
+        elif largeNumberFormat.return_fracation:
+            sum = _divide(sum,
+                          1,
+                          max_dec_num = largeNumberFormat.precision,
+                          repeating_form = largeNumberFormat.return_repeating_form,
+                          return_frac = largeNumberFormat.return_fracation)
         return LargeNumber(sum)
 
     def __sub__(self, x):
