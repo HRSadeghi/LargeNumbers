@@ -162,3 +162,8 @@ print(a/b)
 
 
 ```
+
+
+## Recurring decimal
+Numbers such as 1/3, 1/7 and similar numbers do not have a finite decimal representation. Therefore, we are facing a problem to perform division in these numbers.
+
