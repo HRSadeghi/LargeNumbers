@@ -69,3 +69,24 @@ print(a-b)
 print(a*b)
 print(a/b)
 ```
+
+
+<br/>
+You can also use numbers as fractions,
+
+```python
+from LargeNumber import LargeNumber, largeNumberFormat
+
+a = LargeNumber('1/7')
+b = LargeNumber('-2/5')
+
+largeNumberFormat.return_fracation = False
+
+# Ops
+print(a+b)
+print(a-b)
+print(a*b)
+print(a/b)
+
+
+```
