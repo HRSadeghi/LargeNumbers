@@ -142,6 +142,23 @@ class LargeNumber(object):
                                        return_frac = False).split('.')[0].replace('L',''))
         else:
             raise ValueError('The data type {} is not supported!'.format(type(x)))
+
+    
+    def __rfloordiv__(self, x):
+        if type(x) == LargeNumber:
+            return LargeNumber(_divide(x.value,
+                                       self.value,
+                                       max_dec_num = 1,
+                                       repeating_form = False,
+                                       return_frac = False).split('.')[0].replace('L',''))
+        elif type(x) == int or str:
+            return LargeNumber(_divide(str(x),
+                                       self.value,
+                                       max_dec_num = 1,
+                                       repeating_form = False,
+                                       return_frac = False).split('.')[0].replace('L',''))
+        else:
+            raise ValueError('The data type {} is not supported!'.format(type(x)))
             
     def __eq__(self, x):
         if type(x) == LargeNumber:
