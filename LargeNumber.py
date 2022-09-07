@@ -67,7 +67,9 @@ class LargeNumber(object):
             return self.__add__('-' + x.value.replace('+', ''))
         else:
             return self.__add__('-' + x.value)
-
+    
+    def __rsub__(self, x):
+        return self.__sub__(x)
 
     def __mul__(self, x):
         if type(x) == LargeNumber:
