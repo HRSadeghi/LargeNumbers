@@ -180,7 +180,7 @@ largeNumberFormat.precision = 30
 
 
 a = LargeNumber('0.R81')
-b = LargeNumber('1/3')
+b = LargeNumber('0.134R1')
 
 # Ops 
 print(a+b)
