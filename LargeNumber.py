@@ -167,6 +167,8 @@ class LargeNumber(object):
             a = a.replace('-', '').replace('+', '')
         elif type(x) == int or str:
             a, b = to_fraction(str(x))
+            a_sign = -1 if '-' in a else 1
+            a = a.replace('-', '').replace('+', '')
         else:
             raise ValueError('The data type {} is not supported!'.format(type(x)))
         c, d = to_fraction(self.value)
