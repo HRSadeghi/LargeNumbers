@@ -179,10 +179,11 @@ largeNumberFormat.return_fracation = False
 largeNumberFormat.precision = 30
 
 
-a = LargeNumber('1/7')
+a = LargeNumber('0.R81')
 b = LargeNumber('1/3')
 
 # Ops 
+print()
 print(a+b)
 print(a-b)
 print(a*b)
@@ -190,12 +191,10 @@ print(a/b)
 ##
 
 
-
-a = LargeNumber('0.R81')
+a = LargeNumber('1/7')
 b = LargeNumber('1/3')
 
 # Ops 
-print()
 print(a+b)
 print(a-b)
 print(a*b)
