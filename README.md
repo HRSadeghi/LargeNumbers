@@ -31,6 +31,7 @@ cd LargeNumbers
 ## Usage
 
 The easiest way to use this library is as follows,
+<br/>
 
 ```python
 from LargeNumber import LargeNumber, largeNumberFormat
@@ -58,6 +59,7 @@ print(a/b)
 
 ```
 
+<br/>
 In the above code snippet, because the number of digits for the division operation may be very large, so a maximum can be defined for it using `largeNumberFormat.precision`.
 
 
@@ -92,6 +94,7 @@ print(a/b)
 
 <br/>
 You can also use numbers as fractions,
+<br/>
 
 ```python
 from LargeNumber import LargeNumber, largeNumberFormat
@@ -121,8 +124,9 @@ print(a/b)
 
 ```
 
-
-It is also possible to give numbers as input and get the output as a fraction or non-fraction, 
+<br/>
+It is also possible to give numbers as input and get the output as a fraction or non-fraction,
+<br/> 
 
 ```python
 from LargeNumber import LargeNumber, largeNumberFormat
@@ -140,13 +144,14 @@ print(a/b)
 ##
 
 
-a = LargeNumber('1.134')
+a = LargeNumber('2.142')
 b = LargeNumber('-1.57')
 
 # Ops (return the result as a decimal)
 largeNumberFormat.precision = 5
 largeNumberFormat.return_fracation = True
 
+print()
 print(a+b)
 print(a-b)
 print(a*b)
