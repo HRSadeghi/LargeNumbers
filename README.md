@@ -70,7 +70,7 @@ print(a/b)
 
 <br/>
 
-In the above code snippet, because the number of digits for the division operation may be very large, so a maximum can be defined for it using `largeNumberFormat.precision`. If the number of digits appearing in the division process is more than the number of digits allocated for `largeNumberFormat.precision`, then a letter `L` appears at the end of the number (this letter has no effect in calculations).
+In the above code snippet, because the number of digits for the division operation may be very large, so a maximum can be defined for it using `largeNumberFormat.precision`. If the number of digits appearing in the division process is more than the number of digits allocated for `largeNumberFormat.precision`, then a letter `L` appears at the end of the number (this letter has no effect in further calculations).
 
 ```python
 from LargeNumber import LargeNumber, largeNumberFormat
@@ -238,7 +238,7 @@ print(a/b)
 ```
 
 
-In the above code snippet, `largeNumberFormat.return_repeating_form` specifies whether the number is in recurring (repeating) form or not. If the number of digits in the periodic display exceeds the number of digits dedicated to the `largeNumberFormat.precision`, the number will not be displayed recurringly and an `L` will appear at the end of the number.
+In the above code snippet, `largeNumberFormat.return_repeating_form` specifies whether the number is in recurring (repeating) form or not. If the number of digits in the periodic display exceeds the number of digits dedicated to the `largeNumberFormat.precision`, the number will not be displayed recurringly and an `L` will appear at the end of the number (this letter has no effect in further calculations).
 
 ```python
 from LargeNumber import LargeNumber, largeNumberFormat
