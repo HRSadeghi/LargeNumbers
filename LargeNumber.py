@@ -232,8 +232,11 @@ class LargeNumber(object):
     def __ge__(self, x):
         return self.__gt__(x) or self.__eq__(x)
 
-    def __rge__(self, x):
+    def __le__(self, x):
         return not self.__gt__(x)
+
+    def __lt__(self, x):
+        return not self.__ge__(x)
 
     def __neg__(self):
         value_sign = '-' if '-' in self.value else ''
