@@ -138,7 +138,6 @@ TypeError: bad operand type for unary -: 'str'
 
 ```
 
-
 <br/>
 
 You can also give input numbers as fractions,
