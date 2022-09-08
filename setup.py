@@ -19,7 +19,7 @@ long_description = open('README.md').read()
 
 setup(
     name='LargeNumbers',
-    version='0.1.5',    
+    version='0.1.6',    
     description='In this repository, a library has been provided that allows you to perform the four basic operations of addition, subtraction, multiplication and division on large and very large numbers.',
     url='https://github.com/HRSadeghi/LargeNumbers.git',
     author='Hamidreza Sadeghi',
