@@ -30,6 +30,8 @@ To use the model, just clone the project, change the path to the corresponding d
 git clone https://github.com/HRSadeghi/LargeNumbers.git
 
 cd LargeNumbers
+
+pip install .
 ```
 
 ## Usage
