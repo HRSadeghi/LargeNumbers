@@ -40,7 +40,7 @@ The easiest way to use this library is as follows,
 <br/>
 
 ```python
-from LargeNumber import LargeNumber, largeNumberFormat
+from LargeNumbers.LargeNumber import LargeNumber, largeNumberFormat
 
 a = LargeNumber('125763678041689463179.45761346709461437894')
 b = LargeNumber('-746011541145.47464169741644487000085')
@@ -75,7 +75,7 @@ print(a/b)
 In the above code snippet, because the number of digits for the division operation may be very large, so a maximum can be defined for it using `largeNumberFormat.precision`. If the number of digits appearing in the division process is more than the number of digits allocated for `largeNumberFormat.precision`, then a letter `L` appears at the end of the number (this letter has no effect in further calculations).
 
 ```python
-from LargeNumber import LargeNumber, largeNumberFormat
+from LargeNumbers.LargeNumber import LargeNumber, largeNumberFormat
 
 largeNumberFormat.precision = 2
 
@@ -92,7 +92,7 @@ print(a/b)
 You can also define one of the numbers as a `string`, `int` or `float`,
 
 ```python
-from LargeNumber import LargeNumber, largeNumberFormat
+from LargeNumbers.LargeNumber import LargeNumber, largeNumberFormat
 
 a = LargeNumber('125763678041689463179.45761346709461437894')
 b = '-746011541145.47464169741644487000085'
@@ -123,7 +123,7 @@ You can also use numbers as fractions,
 <br/>
 
 ```python
-from LargeNumber import LargeNumber, largeNumberFormat
+from LargeNumbers.LargeNumber import LargeNumber, largeNumberFormat
 
 a = LargeNumber('1/2')
 b = LargeNumber('-3/14')
@@ -156,7 +156,7 @@ It is also possible to give numbers as input and get the output as a fraction or
 <br/> 
 
 ```python
-from LargeNumber import LargeNumber, largeNumberFormat
+from LargeNumbers.LargeNumber import LargeNumber, largeNumberFormat
 
 a = LargeNumber('1.134')
 b = LargeNumber('-3/14')
@@ -197,7 +197,7 @@ According to this way of representation, we can apply the four operations of add
  
 
 ```python
-from LargeNumber import LargeNumber, largeNumberFormat
+from LargeNumbers.LargeNumber import LargeNumber, largeNumberFormat
 
 largeNumberFormat.return_repeating_form = True
 largeNumberFormat.return_fracation = False
@@ -243,7 +243,7 @@ print(a/b)
 In the above code snippet, `largeNumberFormat.return_repeating_form` specifies whether the number is in recurring (repeating) form or not. If the number of digits in the periodic display exceeds the number of digits dedicated to the `largeNumberFormat.precision`, the number will not be displayed recurringly and an `L` will appear at the end of the number (this letter has no effect in further calculations).
 
 ```python
-from LargeNumber import LargeNumber, largeNumberFormat
+from LargeNumbers.LargeNumber import LargeNumber, largeNumberFormat
 
 largeNumberFormat.return_repeating_form = True
 largeNumberFormat.return_fracation = False
