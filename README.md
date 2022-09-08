@@ -24,7 +24,7 @@ Note: In this library, powering is not supported yet, but it will be supported i
 
 ## Installation
 
-To install, you can use pip as follows.
+To install, you can use `pip` as follows.
 <br/>
 
 ```
