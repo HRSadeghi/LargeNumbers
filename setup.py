@@ -21,7 +21,7 @@ setup(
     url='https://github.com/HRSadeghi/LargeNumbers.git',
     author='Hamidreza Sadeghi',
     author_email='sadeghi.hamidreza1400@gmail.com',
-    license='BSD 2-clause',
+    license='Apache License 2.0',
     packages=['LargeNumbers'],
     install_requires=['numpy'],
 
