@@ -15,10 +15,10 @@
 
 
 import numpy as np
-from LargeNumberFormat import LargeNumberFormat
-from utils import gcd, _add, string_int_to_very_long_int, convert_repeating_dec_to_frac
-from utils import dec_to_frac, number_to_simplest_form, to_fraction, _multiply
-from utils import _divide, _invert, _frac_to_dec
+from LargeNumbers.LargeNumberFormat import LargeNumberFormat
+from LargeNumbers.utils import gcd, _add, string_int_to_very_long_int, convert_repeating_dec_to_frac
+from LargeNumbers.utils import dec_to_frac, number_to_simplest_form, to_fraction, _multiply
+from LargeNumbers.utils import _divide, _invert, _frac_to_dec
 
 
 largeNumberFormat = LargeNumberFormat()
