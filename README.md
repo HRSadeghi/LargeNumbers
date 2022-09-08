@@ -117,6 +117,33 @@ print(a/b)
 ```
 
 
+<br>
+
+But if the input is a `string`, you cannot negate it first.
+<br>
+
+```python
+
+from LargeNumbers.LargeNumber import LargeNumber, largeNumberFormat
+
+a = '125763678041689463179.45761346709461437894'
+b = LargeNumber('-746011541145.47464169741644487000085')
+
+print(-a+b)
+
+# In this case, you will encounter the following error
+"""
+TypeError                                 Traceback (most recent call last)
+<ipython-input-28-e92575140dc0> in <module>
+      4 b = LargeNumber('-746011541145.47464169741644487000085')
+      5 
+----> 6 print(-a+b)
+
+TypeError: bad operand type for unary -: 'str'
+"""
+
+```
+
 
 <br/>
 
