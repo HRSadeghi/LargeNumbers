@@ -21,6 +21,7 @@ from LargeNumbers.utils import dec_to_frac, number_to_simplest_form, to_fraction
 from LargeNumbers.utils import _divide, _invert, _frac_to_dec
 
 
+
 largeNumberFormat = LargeNumberFormat()
 
 class LargeNumber(object):
