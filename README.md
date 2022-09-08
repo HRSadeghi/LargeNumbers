@@ -197,7 +197,6 @@ Here, the letter R is used to show the beginning of the period. Therefore, we re
 
 
 According to this way of representation, we can apply the four operations of addition, subtraction, multiplication and division on the same representation.
-
  
 
 ```python
