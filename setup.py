@@ -13,12 +13,9 @@
 #limitations under the License.
 
 from setuptools import setup
-from pathlib import Path
 
 # Read the contents of the README file
-this_directory = Path(__file__).parent
-long_description = (this_directory / "README.md").read_text()
-
+long_description = open('README.md').read()
 
 setup(
     name='LargeNumbers',
