@@ -119,7 +119,9 @@ print(a/b)
 
 
 <br/>
-You can also use numbers as fractions,
+
+You can also give input numbers as fractions,
+
 <br/>
 
 ```python
@@ -159,7 +161,7 @@ It is also possible to give numbers as input and get the output as a fraction or
 from LargeNumbers.LargeNumber import LargeNumber, largeNumberFormat
 
 a = LargeNumber('2.142')
-b = LargeNumber('-1.57')
+b = LargeNumber('-3/14')
 
 # Ops (return the result as a fraction)
 largeNumberFormat.return_fracation = True
@@ -171,7 +173,7 @@ print(a/b)
 ##
 
 a = LargeNumber('1.134')
-b = LargeNumber('-3/14')
+b = LargeNumber('-1.57')
 
 # Ops (return the result as a decimal)
 largeNumberFormat.return_fracation = True
