@@ -28,6 +28,7 @@ setup(
     packages=['LargeNumbers'],
     install_requires=['numpy'],
     long_description = long_description,
+    long_description_content_type='text/markdown',
 
     classifiers=[
         'License :: OSI Approved :: BSD License',  
