@@ -156,7 +156,6 @@ print(a/b)
 <br/>
 
 It is also possible to give numbers as input and get the output as a fraction or non-fraction,
-
 <br/> 
 
 ```python
