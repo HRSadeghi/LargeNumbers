@@ -24,7 +24,18 @@ Note: In this library, powering is not supported yet, but it will be supported i
 
 ## Installation
 
-To use the model, just clone the project, change the path to the corresponding directory and then install lib using `pip`.
+To install, you can use pip as follows.
+<br/>
+
+```
+pip install LargeNumbers
+```
+
+<br/>
+
+To install from the repository, just clone the project, change the path to the corresponding directory and then install lib using `pip`.
+
+<br/>
 
 ```
 git clone https://github.com/HRSadeghi/LargeNumbers.git
