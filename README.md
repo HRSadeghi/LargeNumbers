@@ -133,12 +133,6 @@ print(-a+b)
 
 # In this case, you will encounter the following error
 """
-TypeError                                 Traceback (most recent call last)
-<ipython-input-28-e92575140dc0> in <module>
-      4 b = LargeNumber('-746011541145.47464169741644487000085')
-      5 
-----> 6 print(-a+b)
-
 TypeError: bad operand type for unary -: 'str'
 """
 
