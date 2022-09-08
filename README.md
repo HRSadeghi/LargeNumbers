@@ -191,7 +191,10 @@ print(a/b)
 
 
 ## Recurring decimal (repeating decimal)
-Numbers such as $\dfrac{1}{3}$, $\dfrac{1}{7}$ and similar numbers do not have a finite decimal representation. Therefore, we are facing a problem to perform division in these numbers. But these numbers can be shown in periodic form. As a result, $\dfrac{1}{3}$ can be represented by $0.\overline{3}$ and $\dfrac{1}{7}$ by $0.\overline{142857}$.
+Numbers such as $\dfrac{1}{3}$, $\dfrac{1}{7}$ and similar numbers do not have a finite decimal representation. Therefore, we are facing a problem to perform division in these numbers. But these numbers can be shown in periodic form. As a result, $\dfrac{1}{3}$ can be represented by $0.\overline{3}$ and $\dfrac{1}{7}$ by $0.\overline{142857}$. 
+
+Here, the letter R is used to show the beginning of the period. Therefore, we represent a number like $0.\overline{3}$ with `0.R3`, a number like $0.\overline{7}$ with `0.R7` and a number like $0.12\overline{42}$ with `0.12R42`.
+
 
 According to this way of representation, we can apply the four operations of addition, subtraction, multiplication and division on the same representation.
 
