@@ -158,8 +158,8 @@ It is also possible to give numbers as input and get the output as a fraction or
 ```python
 from LargeNumbers.LargeNumber import LargeNumber, largeNumberFormat
 
-a = LargeNumber('1.134')
-b = LargeNumber('-3/14')
+a = LargeNumber('2.142')
+b = LargeNumber('-1.57')
 
 # Ops (return the result as a fraction)
 largeNumberFormat.return_fracation = True
@@ -170,12 +170,10 @@ print(a*b)
 print(a/b)
 ##
 
-
-a = LargeNumber('2.142')
-b = LargeNumber('-1.57')
+a = LargeNumber('1.134')
+b = LargeNumber('-3/14')
 
 # Ops (return the result as a decimal)
-largeNumberFormat.precision = 5
 largeNumberFormat.return_fracation = True
 
 print()
