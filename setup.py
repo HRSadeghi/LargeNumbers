@@ -30,6 +30,7 @@ setup(
     license='Apache License 2.0',
     packages=['LargeNumbers'],
     install_requires=['numpy'],
+    long_description = long_description,
 
     classifiers=[
         'License :: OSI Approved :: BSD License',  
